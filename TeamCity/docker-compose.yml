@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  teamcity-server:
+    image: jetbrains/teamcity-server:latest
+    volumes:
+      - teamcity-server-datadir:/data/teamcity_server/datadir
+      - teamcity-server-logs:/opt/teamcity/logs
+    ports:
+      - 8111:8111
+
+  teamcity-agent:
+    build:
+      context: .
+    environment:
+        SERVER_URL: http://teamcity-server:8111
+    volumes:
+      - teamcity-agent-conf:/data/teamcity_agent/conf
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on: 
+      - teamcity-server  
+
+volumes:
+  teamcity-server-datadir:
+  teamcity-server-logs:
+  teamcity-agent-conf:
+  
