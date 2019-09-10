@@ -8,3 +8,6 @@
 /LoggerService/bin
 /Repository/obj
 /Repository/bin
+/Tests/bin
+/Tests/obj
+/TeamCity
