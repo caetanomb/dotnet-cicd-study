@@ -15,16 +15,16 @@ services:
     ports:
       - "3306:3306"
 
-  # accountownerapp:
-  #   depends_on:
-  #     - db
-  #   image: my-registry:50000/caetanomb/accountowner:build-3
-  #   ports:
-  #     - "8080:80"
+  accountownerapp:
+    depends_on:
+      - db
+    image: my-registry:50000/caetanomb/accountowner:build-3
+    ports:
+      - "8080:80"
   
   integrationtests:
     depends_on:
-      - db
+      - accountownerapp
     image: my-registry:50000/caetanomb/accountownerapp:test
     build:
       context: .

@@ -10,8 +10,8 @@ COPY ./LoggerService/LoggerService.csproj ./LoggerService/
 COPY ./Tests/Tests.csproj ./Tests/
 COPY ./AccountOwnerServer.sln .
 
-ADD tuirootca.crt /usr/local/share/ca-certificates/tuirootca.crt
-RUN chmod 644 /usr/local/share/ca-certificates/tuirootca.crt && update-ca-certificates
+ADD domainca.crt /usr/local/share/ca-certificates/domainca.crt
+RUN chmod 644 /usr/local/share/ca-certificates/domainca.crt && update-ca-certificates
 
 RUN dotnet restore
 
