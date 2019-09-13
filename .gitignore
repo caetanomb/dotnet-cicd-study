@@ -11,3 +11,7 @@
 /Tests/bin
 /Tests/obj
 /.vscode
+/Integration/obj
+/Integration/bin
+/tuirootca.crt
+/TeamCity/tuirootca.crt
