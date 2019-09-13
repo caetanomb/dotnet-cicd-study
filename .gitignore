@@ -13,5 +13,5 @@
 /.vscode
 /Integration/obj
 /Integration/bin
-/tuirootca.crt
-/TeamCity/tuirootca.crt
+/TeamCity/datadir
+/TeamCity/logs
