@@ -18,7 +18,7 @@ services:
   accountownerapp:
     depends_on:
       - db
-    image: my-registry:50000/caetanomb/accountowner:build-3
+    image: my-registry:50000/caetanomb/accountowner:build-9
     ports:
       - "8080:80"
   
