@@ -30,7 +30,7 @@ namespace IntegrationTests
             response.EnsureSuccessStatusCode();
 
             //Assert
-            Assert.NotEqual(HttpStatusCode.OK, response.StatusCode);
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
 
         [Fact]
