@@ -30,7 +30,7 @@ namespace IntegrationTests
             response.EnsureSuccessStatusCode();
 
             //Assert
-            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+            Assert.NotEqual(HttpStatusCode.OK, response.StatusCode);
         }
 
         [Fact]
@@ -46,7 +46,7 @@ namespace IntegrationTests
             var owner = JsonConvert.DeserializeObject<List<Owner>>(responseString);
 
             //Assert   
-            Assert.Empty(owner);
+            Assert.NotEmpty(owner);
         }
     }
 }
