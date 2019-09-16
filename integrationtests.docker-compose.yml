@@ -15,17 +15,17 @@ services:
     ports:
       - "3306:3306"
 
-  accountownerapp:
-    depends_on:
-      - db
-    image: my-registry:50000/caetanomb/accountowner:build-9
-    ports:
-      - "8080:80"
+  # accountownerapp:
+  #   depends_on:
+  #     - db
+  #   image: my-registry:50000/caetanomb/accountowner:build-9
+  #   ports:
+  #     - "8080:80"
   
   integrationtests:
     depends_on:
-      - accountownerapp
-    image: my-registry:50000/caetanomb/accountownerapp:test
+      - db
+    image: my-registry:50000/caetanomb/accountownerapp:build-${BUILD_NUMBER_ACCOUNTOWNER}
     build:
       context: .
       dockerfile: IntegrationTests.Dockerfile
