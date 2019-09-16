@@ -29,6 +29,7 @@ services:
     build:
       context: .
       dockerfile: IntegrationTests.Dockerfile
-
+    environment:
+      - TEAMCITY_PROJECT_NAME
 volumes:
   dbdata:
