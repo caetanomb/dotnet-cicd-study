@@ -46,7 +46,7 @@ namespace IntegrationTests
             var owner = JsonConvert.DeserializeObject<List<Owner>>(responseString);
 
             //Assert   
-            Assert.Empty(owner);
+            Assert.NotEmpty(owner);
         }
     }
 }
