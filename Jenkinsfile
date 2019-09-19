@@ -1,7 +1,7 @@
 node('docker') {
-    
+
     stage 'Checkout'
-        Checkout scm
+        checkout scm
 
     stage 'Build e UnitTest'
         sh "docker build -t accountownerapp:B${BUILD_NUMBER} -f Dockerfile ."
