@@ -13,19 +13,12 @@ services:
       - ./_MySQL_Init_Script:/docker-entrypoint-initdb.d
     restart: always
     ports:
-      - "3306:3306"
-
-  # accountownerapp:
-  #   depends_on:
-  #     - db
-  #   image: my-registry:50000/caetanomb/accountowner:build-9
-  #   ports:
-  #     - "8080:80"
+      - "3306:3306"  
   
   integrationtests:
     depends_on:
       - db
-    image: my-registry:50000/caetanomb/accountownerapp:test-B${BUILD_NUMBER}
+    image: accountownerapp:test-B${BUILD_NUMBER}
     build:
       context: .
       dockerfile: IntegrationTests.Dockerfile
