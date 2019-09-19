@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+    jenkins:
+      container_name: jenkins
+      ports:
+        - '8080:8080'
+        - '60000:60000'
+      image: jenkins-master
+    jenkins-slave:
+      container_name: jenkins-slave
+      restart: always
+      environment:
+        - 'JENKINS_URL=http://jenkins:8080'
+      image: jenkins-slave
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - /home/jenkins:/home/jenkins
+      depends_on:
+        - jenkins
