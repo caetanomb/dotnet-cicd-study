@@ -5,6 +5,7 @@ node('docker') {
 
     stage 'Build e UnitTest'
         sh "docker build -t accountownerapp:B${BUILD_NUMBER} -f Dockerfile ."
+        
     stage 'Publish UnitTest Reports'
         containerID = sh (
             script: "docker run -d accountownerapp:B${BUILD_NUMBER}",
@@ -15,7 +16,7 @@ node('docker') {
         sh "docker stop ${containerID}"
         sh "docker rm ${containerID}"
         step([$class: 'MSTestPublisher', failOnError: false, testResultsFile: 'test_results.xml'])
-                
+
     stage 'Integration Test'
         sh "docker-compose -f integrationtests.docker-compose.yml up --force-recreate --abort-on-container-exit"
         sh "docker-compose -f integrationtests.docker-compose.yml down -v"
