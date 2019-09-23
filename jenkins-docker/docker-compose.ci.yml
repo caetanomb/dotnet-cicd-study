@@ -7,6 +7,8 @@ services:
         - '8080:8080'
         - '60000:60000'
       image: jenkins-master
+      volumes:
+        - jenkins-master-data:/var/jenkins_home
     jenkins-slave:
       container_name: jenkins-slave
       restart: always
@@ -18,3 +20,6 @@ services:
         - /home/jenkins:/home/jenkins
       depends_on:
         - jenkins
+
+volumes:
+  jenkins-master-data:
